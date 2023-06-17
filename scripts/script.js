@@ -9,6 +9,7 @@ function getComputerChoice() {
         }
 }
 
-let computerChoice = getComputerChoice();
+const computerSelection = getComputerChoice();
 
-console.log(computerChoice)
+let userSelection = prompt("Do you choose Rock, Paper, or Scissors?");
+
