@@ -1,0 +1,29 @@
+1. Create randomized computer input
+2. Prompt for user input.
+3. Compare to computer selection.
+4. Display winner
+5. Increment score count
+6. Display winner of 5 games
+
+1.  Generate random integer between 0 and 3.
+    Round down.
+    If randomNumber === 0, choose rock
+    If randomNumber === 1, choose paper
+    If randomNumber === 2, choose scissors 
+
+2.  When user enters rock, Rock, rOck, etc, compare to computer
+    selection.
+        If computer chooses paper, computer wins
+        If computer chooses scissors, player wins
+        If computer choose rock, tie
+
+    When user enters paper, compare to computer selection.
+        If computer chooses paper, tie
+        If computer chooses scissors, computer wins
+        If computer choose rock, player wins
+
+    When user enters scissors, compare to computer selection.
+        If computer chooses paper, player wins
+        If computer chooses scissors, tie
+        If computer choose rock, computer wins
+
