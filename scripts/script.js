@@ -65,17 +65,30 @@ function playRound(playerSelection, computerSelection) {
 const btnRock = document.querySelector('.buttonRock');
 const btnPaper = document.querySelector('.buttonPaper');
 const btnScissors = document.querySelector('.buttonScissors');
+const divResults = document.querySelector('.divResults');
+
+/*
+const content = document.createElement('p');
+content.textContent = 'Hello world!';
+divResults.appendChild(content);
+*/
 
 btnRock.addEventListener('click', () => {
-    console.log(playRound("rock", getComputerChoice()));
+    const content = document.createElement('p');
+    content.textContent = (playRound("rock", getComputerChoice()));
+    divResults.appendChild(content);
 })
 
 btnPaper.addEventListener('click', () => {
-    console.log(playRound("paper", getComputerChoice()));
+    const content = document.createElement('p');
+    content.textContent = (playRound("paper", getComputerChoice()));
+    divResults.appendChild(content);
 })
 
 btnScissors.addEventListener('click', () => {
-    console.log(playRound("scissors", getComputerChoice()));
+    const content = document.createElement('p');
+    content.textContent = (playRound("scissors", getComputerChoice()));
+    divResults.appendChild(content);
 })
 
 //game engine comparing playerSelection vs computerSelection 
