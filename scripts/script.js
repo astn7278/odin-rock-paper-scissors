@@ -61,9 +61,16 @@ function playRound(playerSelection, computerSelection) {
         return(winString + "Scissors beats Paper.");
     }
 }
+
+const btnRock = document.querySelector('.buttonRock')
+const btnPaper = document.querySelector('.buttonPaper')
+const btnScissors = document.querySelector('.buttonScissors')
+
+
 //game engine comparing playerSelection vs computerSelection 
 //increments playerScore and computerScore
 
+/*
 function game() {
     console.log(playRound(playerSelection, getComputerChoice()));
     console.log(playRound(playerSelection, getComputerChoice()));
@@ -83,9 +90,6 @@ function game() {
 game();
 //runs game on browser load
 
+*/
     
 
-//testing new branch git functions
-//ignore this
-//and this
-//additional testing now

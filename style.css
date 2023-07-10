@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 25px;
+}
+
+button {
+    background-color: rgb(214, 214, 214);
+    height: 30px;
+    border-radius: 50%;
+}
