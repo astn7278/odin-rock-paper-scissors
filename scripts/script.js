@@ -26,7 +26,7 @@ let computerScore = 0;
 //create player/computer scores for tracking wins
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = prompt("Do you choose Rock, Paper, or Scissors?");
+    //playerSelection = prompt("Do you choose Rock, Paper, or Scissors?");
     if (playerSelection.toLowerCase () === "rock" && computerSelection === "Rock") {
         return(tieString + "Rock = Rock.");
     }
@@ -62,10 +62,21 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const btnRock = document.querySelector('.buttonRock')
-const btnPaper = document.querySelector('.buttonPaper')
-const btnScissors = document.querySelector('.buttonScissors')
+const btnRock = document.querySelector('.buttonRock');
+const btnPaper = document.querySelector('.buttonPaper');
+const btnScissors = document.querySelector('.buttonScissors');
 
+btnRock.addEventListener('click', () => {
+    console.log(playRound("rock", getComputerChoice()));
+})
+
+btnPaper.addEventListener('click', () => {
+    console.log(playRound("paper", getComputerChoice()));
+})
+
+btnScissors.addEventListener('click', () => {
+    console.log(playRound("scissors", getComputerChoice()));
+})
 
 //game engine comparing playerSelection vs computerSelection 
 //increments playerScore and computerScore
