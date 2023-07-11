@@ -23,17 +23,22 @@ const loseString = "You lose... ";
 
 let playerScore = 0;
 let computerScore = 0;
+let tieScore = 0;
 //create player/computer scores for tracking wins
 
 function playRound(playerSelection, computerSelection) {
     //playerSelection = prompt("Do you choose Rock, Paper, or Scissors?");
     if (playerSelection.toLowerCase () === "rock" && computerSelection === "Rock") {
+        ++tieScore
         return(tieString + "Rock = Rock.");
+        
     }
     else if (playerSelection.toLowerCase () === "paper" && computerSelection === "Paper") {
+        ++tieScore
         return(tieString + "Paper = Paper.");
     }
     else if (playerSelection.toLowerCase () === "scissors" && computerSelection === "Scissors") {
+        ++tieScore
         return(tieString + "Scissors = Scissors.");
     }
     else if (playerSelection.toLowerCase () === "rock" && computerSelection === "Paper") {
@@ -61,40 +66,38 @@ function playRound(playerSelection, computerSelection) {
         return(winString + "Scissors beats Paper.");
     }
 }
+//game engine comparing playerSelection vs computerSelection 
+//increments playerScore and computerScore
+
 
 const btnRock = document.querySelector('.buttonRock');
 const btnPaper = document.querySelector('.buttonPaper');
 const btnScissors = document.querySelector('.buttonScissors');
-const divResults = document.querySelector('.divResults');
-
-/*
-const content = document.createElement('p');
-content.textContent = 'Hello world!';
-divResults.appendChild(content);
-*/
+const roundResults = document.querySelector('.roundResults');
+//defining querySelectors
 
 btnRock.addEventListener('click', () => {
     const content = document.createElement('p');
     content.textContent = (playRound("rock", getComputerChoice()));
-    divResults.appendChild(content);
+    roundResults.appendChild(content);
 })
 
 btnPaper.addEventListener('click', () => {
     const content = document.createElement('p');
     content.textContent = (playRound("paper", getComputerChoice()));
-    divResults.appendChild(content);
+    roundResults.appendChild(content);
 })
 
 btnScissors.addEventListener('click', () => {
     const content = document.createElement('p');
     content.textContent = (playRound("scissors", getComputerChoice()));
-    divResults.appendChild(content);
+    roundResults.appendChild(content);
 })
+//appending playRound result output to "results" div
 
-//game engine comparing playerSelection vs computerSelection 
-//increments playerScore and computerScore
 
-/*
+
+/* Previous code for reference
 function game() {
     console.log(playRound(playerSelection, getComputerChoice()));
     console.log(playRound(playerSelection, getComputerChoice()));
