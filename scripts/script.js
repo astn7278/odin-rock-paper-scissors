@@ -23,22 +23,17 @@ const loseString = "You lose... ";
 
 let playerScore = 0;
 let computerScore = 0;
-let tieScore = 0;
 //create player/computer scores for tracking wins
 
 function playRound(playerSelection, computerSelection) {
     //playerSelection = prompt("Do you choose Rock, Paper, or Scissors?");
     if (playerSelection.toLowerCase () === "rock" && computerSelection === "Rock") {
-        ++tieScore
         return(tieString + "Rock = Rock.");
-        
     }
     else if (playerSelection.toLowerCase () === "paper" && computerSelection === "Paper") {
-        ++tieScore
         return(tieString + "Paper = Paper.");
     }
     else if (playerSelection.toLowerCase () === "scissors" && computerSelection === "Scissors") {
-        ++tieScore
         return(tieString + "Scissors = Scissors.");
     }
     else if (playerSelection.toLowerCase () === "rock" && computerSelection === "Paper") {
@@ -74,49 +69,53 @@ const btnRock = document.querySelector('.buttonRock');
 const btnPaper = document.querySelector('.buttonPaper');
 const btnScissors = document.querySelector('.buttonScissors');
 const roundResults = document.querySelector('.roundResults');
+const cpuScoreDisplay = document.querySelector('.cpuScoreDisplay')
+const playerScoreDisplay = document.querySelector('.playerScoreDisplay')
+const gameWinnerDisplay = document.querySelector('.gameWinnerDisplay')
 //defining querySelectors
 
-btnRock.addEventListener('click', () => {
-    const content = document.createElement('p');
-    content.textContent = (playRound("rock", getComputerChoice()));
-    roundResults.appendChild(content);
-})
-
-btnPaper.addEventListener('click', () => {
-    const content = document.createElement('p');
-    content.textContent = (playRound("paper", getComputerChoice()));
-    roundResults.appendChild(content);
-})
-
-btnScissors.addEventListener('click', () => {
-    const content = document.createElement('p');
-    content.textContent = (playRound("scissors", getComputerChoice()));
-    roundResults.appendChild(content);
-})
-//appending playRound result output to "results" div
-
-
-
-/* Previous code for reference
-function game() {
-    console.log(playRound(playerSelection, getComputerChoice()));
-    console.log(playRound(playerSelection, getComputerChoice()));
-    console.log(playRound(playerSelection, getComputerChoice()));
-    console.log(playRound(playerSelection, getComputerChoice()));
-    console.log(playRound(playerSelection, getComputerChoice()));
-    if (playerScore > computerScore) {
-        alert("You won the game! Player = " + playerScore + " Computer = " + computerScore)
-    }   else if (playerScore < computerScore) {
-        alert("You lost the game... Player = " + playerScore + " Computer = " + computerScore)
-    }   else {
-        alert("It was a tie game. Player = " + playerScore + " Computer = " + computerScore)
+btnRock.addEventListener('click', function rockGame() {
+    roundResults.textContent = (playRound("rock", getComputerChoice()));
+    cpuScoreDisplay.textContent = `Computer Score is ${computerScore}`;
+    playerScoreDisplay.textContent = `Player Score is ${playerScore}`;
+    if (playerScore >= 5) {
+        gameWinnerDisplay.textContent = "Player wins!";
+        btnRock.removeEventListener('click', rockGame);
+    } 
+    else if (computerScore >= 5) {
+        gameWinnerDisplay.textContent = "Computer wins!";
+        btnRock.removeEventListener('click', rockGame);
     }
-}
-//creates 5-round game and compares playerScore and computerScore at end
+    
+})
 
-game();
-//runs game on browser load
+btnPaper.addEventListener('click', function paperGame() {
+    roundResults.textContent = (playRound("paper", getComputerChoice()));
+    cpuScoreDisplay.textContent = `Computer Score is ${computerScore}`;
+    playerScoreDisplay.textContent = `Player Score is ${playerScore}`;
+    if (playerScore >= 5) {
+        gameWinnerDisplay.textContent = "Player wins!";
+        btnPaper.removeEventListener('click', paperGame);
+    } 
+    else if (computerScore >= 5) {
+        gameWinnerDisplay.textContent = "Computer wins!";
+        btnPaper.removeEventListener('click', paperGame);
+    }
+})
 
-*/
+btnScissors.addEventListener('click', function scissorGame() {
+    roundResults.textContent = (playRound("scissors", getComputerChoice()));
+    cpuScoreDisplay.textContent = `Computer Score is ${computerScore}`;
+    playerScoreDisplay.textContent = `Player Score is ${playerScore}`;
+    if (playerScore >= 5) {
+        gameWinnerDisplay.textContent = "Player wins!";
+        btnScissors.removeEventListener('click', scissorGame);
+    } 
+    else if (computerScore >= 5) {
+        gameWinnerDisplay.textContent = "Computer wins!";
+        btnScissors.removeEventListener('click', scissorGame);
+    }
+})
+
     
 
