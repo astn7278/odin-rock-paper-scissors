@@ -16,9 +16,7 @@ let computerSelection = getComputerChoice();
 let playerSelection;
 //create playerSelection variable
 
-const tieString = "Tie Game. ";
-const winString = "You win! ";
-const loseString = "You lose... ";
+
 //create win/lose/tie variables
 
 let playerScore = 0;
@@ -27,6 +25,9 @@ let computerScore = 0;
 
 function playRound(playerSelection, computerSelection) {
     //playerSelection = prompt("Do you choose Rock, Paper, or Scissors?");
+    const tieString = "Tie Game. ";
+    const winString = "You win! ";
+    const loseString = "You lose... ";
     if (playerSelection.toLowerCase () === "rock" && computerSelection === "Rock") {
         return(tieString + "Rock = Rock.");
     }
@@ -85,8 +86,7 @@ btnRock.addEventListener('click', function rockGame() {
     else if (computerScore >= 5) {
         gameWinnerDisplay.textContent = "Computer wins!";
         btnRock.removeEventListener('click', rockGame);
-    }
-    
+    }  
 })
 
 btnPaper.addEventListener('click', function paperGame() {
